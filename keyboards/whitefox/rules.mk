@@ -30,6 +30,7 @@ BOOTLOADER = dfu
 # Build Options
 #   comment out to disable the options.
 #
+TAP_DANCE_ENABLE = yes
 BOOTMAGIC_ENABLE = yes	# Virtual DIP switch configuration
 ## (Note that for BOOTMAGIC on Teensy LC you have to use a custom .ld script.)
 MOUSEKEY_ENABLE = yes	# Mouse keys
