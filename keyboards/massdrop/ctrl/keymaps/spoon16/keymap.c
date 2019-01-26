@@ -134,8 +134,6 @@ void matrix_scan_user(void) {
 };
 
 bool process_record_user(uint16_t keycode, keyrecord_t *record) {
-    static uint32_t key_timer;
-
     switch (keycode) {
       case KC_SPCFN:
         if (record->event.pressed) {
