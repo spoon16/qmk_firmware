@@ -79,7 +79,7 @@ const uint16_t PROGMEM keymaps[][MATRIX_ROWS][MATRIX_COLS] = {
     //LSFT     , Z          , X          , C          , V          , B          , N          , M          , COMM       , DOT        , SLSH       , RSFT                                              , UP         ,
     KC_LSFT    , KC_Z       , KC_X       , KC_C       , KC_V       , KC_B       , KC_N       , KC_M       , KC_COMM    , KC_DOT     , KC_SLSH    , KC_RSFT                                           , KC_UP      , \
     //LCTL     , LALT       , GUI        , SPC                                                                         , RGUI       , RALT       , RCTL                                 , LEFT       , DOWN       , RGHT
-    KC_LCTL    , KC_LALT    , KC_LGUI    , KC_SPCFN                                                                    , KC_RGUI    , KC_RALT    , KC_RCTL    ,  NOKEY                  , KC_LEFT    , KC_DOWN    , KC_RGHT      \
+    KC_MEH     , KC_LALT    , KC_LGUI    , KC_SPCFN                                                                    , KC_RGUI    , KC_RALT    , KC_RCTL    ,  NOKEY                  , KC_LEFT    , KC_DOWN    , KC_RGHT      \
   ),
   [L_FN] = LAYOUT(
     //ESC      , F1         , F2         , F3         , F4         , F5         , F6         , F7         , F8         , F9         , F10        , F11        , F12                     , PSCR       , SLCK       , PAUS       ,
@@ -113,9 +113,9 @@ const uint16_t PROGMEM keymaps[][MATRIX_ROWS][MATRIX_COLS] = {
     //ESC      , F1         , F2         , F3         , F4         , F5         , F6         , F7         , F8         , F9         , F10        , F11        , F12                     , PSCR       , SLCK       , PAUS       ,
     ___________, ___________, ___________, ___________, ___________, ___________, ___________, ___________, ___________, ___________, ___________, ___________, ___________             , ___________, ___________, ___________, \
     //GRV      , 1          , 2          , 3          , 4          , 5          , 6          , 7          , 8          , 9          , 0          , MINS       , EQL        , BSPC       , INS        , HOME       , PGUP       ,
-    ___________, ___________, ___________, ___________, ___________, ___________, ___________, ___________, ___________, ___________, ___________, ___________, ___________, ___________, TG_NKRO    , ___________, ___________, \
+    ___________, ___________, ___________, ___________, ___________, ___________, ___________, ___________, ___________, ___________, ___________, ___________, ___________, ___________, TG_NKRO    , L_T_MD     , ___________, \
     //TAB      , Q          , W          , E          , R          , T          , Y          , U          , I          , O          , P          , LBRC       , RBRC       , BSLS       , DEL        , END        , PGDN       ,
-    ___________, ___________, ___________, ___________, ___________, ___________, ___________, ___________, ___________, ___________, ___________, ___________, ___________, ___________, MD_BOOT    , ___________, ___________, \
+    ___________, ___________, ___________, ___________, ___________, ___________, ___________, ___________, ___________, ___________, ___________, ___________, ___________, ___________, MD_BOOT    , L_T_ONF    , ___________, \
     //CAPS     , A          , W          , D          , F          , G          , H          , J          , K          , L          , SCLN       , QUOT       , ENT        ,
     ___________, ___________, ___________, ___________, ___________, ___________, ___________, ___________, ___________, ___________, ___________, ___________, ___________,                                                     \
     //LSFT     , Z          , X          , C          , V          , B          , N          , M          , COMM       , DOT        , SLSH       , RSFT                                              , UP         ,
@@ -138,12 +138,10 @@ bool process_record_user(uint16_t keycode, keyrecord_t *record) {
       case KC_SPCFN:
         if (record->event.pressed) {
           layer_on(L_FN);
-          layer_on(L_SPCFN);
         } else {
-          layer_off(L_SPCFN);
           layer_off(L_FN);
         }
-        return false;
+        return true;
       case L_BRI:
         if (record->event.pressed) {
           if (LED_GCR_STEP > LED_GCR_MAX - gcr_desired) gcr_desired = LED_GCR_MAX;
