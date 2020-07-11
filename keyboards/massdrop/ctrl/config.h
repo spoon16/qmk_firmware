@@ -100,7 +100,7 @@ along with this program.  If not, see <http://www.gnu.org/licenses/>.
 //#define LOCKING_RESYNC_ENABLE
 
 /* Force boot in NKRO mode */
-#define FORCE_NKRO
+//#define FORCE_NKRO
 
 /*
  * Feature disable options
@@ -108,9 +108,7 @@ along with this program.  If not, see <http://www.gnu.org/licenses/>.
  */
 
 /* disable debug print */
-#ifndef NO_DEBUG
-#  define NO_DEBUG
-#endif
+//#define NO_DEBUG
 
 /* disable print */
 //#define NO_PRINT
